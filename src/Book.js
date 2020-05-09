@@ -9,7 +9,7 @@ class Book extends Component {
      const title = book.title ? book.title : 'No title available';
 
 	   return (
-        <li>
+        <li key= { book.id }>
           <div className="book">
             <div className="book-top">
              <div className="book-cover"
@@ -19,11 +19,10 @@ class Book extends Component {
                  backgroundImage: `url(${coverImg})`
                }}
               />
-               <BookshelfChanger books={ books } book={ book } changeShelf={ changeShelf} />
+               <BookshelfChanger  books={ books } book={ book } changeShelf={ changeShelf} />
             </div>
             <div className="book-title">{ title }</div>
-              { book.authors &&
-               book.authors.map((author, index) => (
+              { book.authors && book.authors.map((author, index) => (
                 <div className="book-authors">{ author }</div>
               ))}
           </div>

@@ -9,6 +9,7 @@ class Bookshelf extends Component {
         <ol className="books-grid">
 		{onShelf.map((book) => (
             <Book
+			key = { shelf.value }
 			book = {book}
 			books={books}
 			changeShelf={ changeShelf }

@@ -4,11 +4,11 @@ import Book from './Book';
 
 class SearchBooks extends Component {
   render() {
-    const { books, changeShelf, query, result, error, makeQuery } = this.props;
+    const { books, changeShelf, query, result, error, makeQuery, clearSearch  } = this.props;
       return (
         <div className="search-books">
           <div className="search-books-bar">
-            <Link className="close-search" to="/">
+            <Link className="close-search" to="/" onClick={ clearSearch }>
               Close
             </Link>
              <div className="search-books-input-wrapper">
@@ -17,6 +17,7 @@ class SearchBooks extends Component {
                  placeholder="Search by title or author"
                  value={ query }
                  onChange={ makeQuery }
+				 default={ result }
                />
            </div>
         </div>
@@ -29,6 +30,7 @@ class SearchBooks extends Component {
                     <Book
                       book={ book }
                       books={ books }
+					  shelf={book.shelf ? book.shelf : 'none'}
                       changeShelf={changeShelf}
                     />
                    ))}

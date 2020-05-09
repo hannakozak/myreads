@@ -12,6 +12,7 @@ class ListBooks extends Component {
             <h2 className="bookshelf-title">{ shelf.name }</h2>
               <div className="bookshelf-books">
                     <Bookshelf
+					   key={ shelf.value }
 					   shelf={ shelf }
                        books={ books }
 					   changeShelf={ changeShelf }

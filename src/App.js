@@ -10,6 +10,7 @@ class BooksApp extends Component {
     books: [],
     result: [],
     error: false
+	
   }
   makeQuery = (event) => {
 	const query = event.target.value;
@@ -20,7 +21,13 @@ class BooksApp extends Component {
           : this.setState({ result: [], error: true });
       });
     }
+	else this.setState({ result: [], error: false })
+	
   }
+  clearSearch = () => {
+	  this.setState({result: [], error: false })
+  }
+  
   bookshelves = [
     { value: 'currentlyReading', name: 'Currently Reading' },
     { value: 'wantToRead', name: 'Want to Read' },
@@ -41,6 +48,7 @@ class BooksApp extends Component {
         }).concat([book])
       }))
     })
+	
   }
      render() {
 	   const { books } = this.state;
@@ -48,7 +56,7 @@ class BooksApp extends Component {
            <div className="app">
              <Route path="/search"
                render={() => (
-                <SearchBooks books={ books } changeShelf= { this.changeShelf } query={ this.query } result={ this.state.result } error={ this.state.error } makeQuery={ this.makeQuery }/>
+                <SearchBooks books={ books }  changeShelf= { this.changeShelf } query={ this.query } result={ this.state.result } error={ this.state.error } makeQuery={ this.makeQuery } clearSearch={ this.clearSearch }/>
                )}
              />
              <Route exact path="/"
@@ -57,7 +65,7 @@ class BooksApp extends Component {
                    <div className="list-books-title">
                      <h1>MyReads</h1>
                    </div>
-                     <ListBooks books={ books } bookshelves = { this.bookshelves } changeShelf={ this.changeShelf }/>
+                     <ListBooks books={ books } bookshelves = { this.bookshelves } changeShelf={ this.changeShelf } />
                    <div className="open-search">
                      <Link to="/search"><button>Add a Book</button></Link>
                    </div>
