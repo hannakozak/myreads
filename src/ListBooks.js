@@ -8,11 +8,10 @@ class ListBooks extends Component {
     <div className="list-books-content">
       {bookshelves.map((shelf, index) => {
         return (
-          <div className="bookshelf" key={index}>
+          <div className="bookshelf" key={ index }>
             <h2 className="bookshelf-title">{ shelf.name }</h2>
               <div className="bookshelf-books">
                     <Bookshelf
-					   key={ shelf.value }
 					   shelf={ shelf }
                        books={ books }
 					   changeShelf={ changeShelf }

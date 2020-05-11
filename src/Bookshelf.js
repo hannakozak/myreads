@@ -7,9 +7,9 @@ class Bookshelf extends Component {
 	const onShelf = books.filter(book => book.shelf === shelf.value);
       return (
         <ol className="books-grid">
-		{onShelf.map((book) => (
+		{onShelf.map((book, index) => (
             <Book
-			key = { shelf.value }
+			key = {index}
 			book = {book}
 			books={books}
 			changeShelf={ changeShelf }
