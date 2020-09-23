@@ -10,7 +10,6 @@ class BooksApp extends Component {
     books: [],
     result: [],
     error: false
-	
   }
   makeQuery = (event) => {
 	const query = event.target.value;
